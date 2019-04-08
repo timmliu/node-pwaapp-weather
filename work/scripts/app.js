@@ -172,6 +172,19 @@ function initApp(apiKey) {
   app.getForecast = function (key, label) {
     var url = `https://api.openweathermap.org/data/2.5/forecast?units=metric&mode=json&id=${key}&appid=${app.apiKey}`;
     // TODO add cache logic here
+    if ('caches' in window) {
+      caches.match(url).then(function(response) {
+        if (response) {
+          response.json()
+          .then(json => {
+            var results = parseResponse(JSON.stringify(json))
+            results.key = key;
+            results.label = label;
+            app.updateForecastCard(results);
+          });
+        }
+      });
+    }
 
     // Fetch the latest data.
     var request = new XMLHttpRequest();
