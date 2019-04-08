@@ -4,7 +4,8 @@
   "description": "Server the files in the work directory",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --inspect server.js"
+    "dev": "nodemon --inspect server.js",
+    "start": "node server.js"
   },
   "author": "Arsham Eslami",
   "license": "ISC",

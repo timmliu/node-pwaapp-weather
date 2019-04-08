@@ -19,7 +19,7 @@ app.use('/scripts/app.js', (req, res) => {
     // Get scripts/app.js file
     // Append initApp(someApiKey)
 
-    fs.readFile(`${__dirname}/${folderToServe}/scripts/app.js`, `utf8`, (error, data) => {
+    fs.readFile(`${__dirname}/scripts/app.js`, `utf8`, (error, data) => {
 
         if (error) {
             res.status(404).send(error);
